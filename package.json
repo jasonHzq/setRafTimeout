@@ -2,7 +2,7 @@
   "name": "setRafTimeout",
   "version": "0.1.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "babel src --out-dir lib -w",
     "build": "babel src --out-dir lib",
@@ -22,7 +22,7 @@
   "files": [
     "src",
     "lib",
-    "*.md",
+    "*.md"
   ],
   "author": "jasonHzq",
   "license": "ISC"
