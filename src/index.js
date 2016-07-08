@@ -1,4 +1,4 @@
-import raf, { caf } from 'raf';
+import raf, { cancel as caf } from 'raf';
 
 let rafTimeoutId = 0;
 const rafMap = {};
@@ -21,6 +21,8 @@ export default function setRafTimeout(callback, timeout = 0) {
   };
 
   rafMap[rafTimeoutId] = raf(shouldUpdate);
+
+  return rafTimeoutId;
 }
 
 export function clearRafTimeout(timeId) {
