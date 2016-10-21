@@ -1,11 +1,13 @@
 import raf, { cancel as caf } from 'raf';
 
-let rafTimeoutId = 0;
+let globalRaftTimeoutId = 0;
 const rafMap = {};
 
 export default function setRafTimeout(callback, timeout = 0) {
   let currTime = -1;
-  rafTimeoutId++;
+  globalRaftTimeoutId++;
+
+  let rafTimeoutId = globalRaftTimeoutId;
 
   const shouldUpdate = now => {
     if (currTime < 0) {
