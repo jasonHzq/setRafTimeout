@@ -1,6 +1,6 @@
 {
   "name": "setRafTimeout",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "setTimeout with requestAnimationFrame",
   "main": "lib/index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "type": "git",
     "url": "https://github.com/jasonHzq/setRafTimeout.git"
   },
-  "author": "recharts group",
+  "author": "jasonHzq",
   "bugs": {
     "url": "https://github.com/jasonHzq/setRafTimeout/issues"
   },
@@ -42,6 +42,5 @@
     "lib",
     "*.md"
   ],
-  "author": "jasonHzq",
   "license": "ISC"
 }
