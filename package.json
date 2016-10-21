@@ -1,7 +1,7 @@
 {
   "name": "setRafTimeout",
   "version": "0.1.1",
-  "description": "",
+  "description": "setTimeout with requestAnimationFrame",
   "main": "lib/index.js",
   "scripts": {
     "dev": "babel src --out-dir lib -w",
@@ -19,6 +19,21 @@
     "babel-preset-stage-0": "^6.5.0",
     "mocha": "^2.5.3"
   },
+  "keywords": [
+    "raf",
+    "requestAnimationFrame",
+    "setTimeout",
+    "clearTimeout"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonHzq/setRafTimeout.git"
+  },
+  "author": "recharts group",
+  "bugs": {
+    "url": "https://github.com/jasonHzq/setRafTimeout/issues"
+  },
+  "homepage": "https://github.com/jasonHzq/setRafTimeout",
   "dependencies": {
     "raf": "^3.2.0"
   },
