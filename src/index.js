@@ -3,7 +3,7 @@ import raf, { cancel as caf } from 'raf';
 let globalRaftTimeoutId = 0;
 const rafMap = {};
 
-export default function setRafTimeout(callback, timeout = 0) {
+export default function setRafTimeout(callback, timeout = 0, ...params) {
   let currTime = -1;
   globalRaftTimeoutId++;
 
@@ -15,7 +15,7 @@ export default function setRafTimeout(callback, timeout = 0) {
     }
 
     if (now - currTime > timeout) {
-      callback(now);
+      callback(...params, now);
       currTime = -1;
     } else {
       rafMap[rafTimeoutId] = raf(shouldUpdate);
@@ -29,4 +29,30 @@ export default function setRafTimeout(callback, timeout = 0) {
 
 export function clearRafTimeout(timeId) {
   caf(rafMap[timeId]);
+}
+
+export function setRafInterval(callback, timeout = 10, ...params) {
+  let finalTimeout = timeout;
+  let timer = null;
+
+  // If this parameter is less than 10, a value of 10 is used
+  if (timeout < 10) {
+    finalTimeout = 10;
+  }
+
+  function finalCallback () {
+    callback(...params);
+
+    timer = setRafTimeout(finalCallback, timeout);
+  };
+
+  finalCallback();
+
+  return function getTimer(timer) {
+    return timer;
+  };
+}
+
+export function clearRafInterval(timer) {
+  clearRafTimeout(timer());
 }
