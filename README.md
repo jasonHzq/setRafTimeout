@@ -12,10 +12,22 @@ $ npm i -S setRafTimeout
 
 ## docs
 
+### setRafTimeout
+
 ```
 import setRafTimeout, { clearRafTimeout } from 'setRafTimeout';
 
 const timeId = setRafTimeout(callback, timeout);
 
 clearRafTimeout(timeId);
+```
+
+### setRafInterval
+
+```
+import { setRafInterval, clearRafInterval } from 'setRafTimeout';
+
+const timer = setRafInterval(callback, timeout);
+
+clearRafInterval(timer);
 ```
