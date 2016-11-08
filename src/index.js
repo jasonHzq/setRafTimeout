@@ -46,11 +46,9 @@ export function setRafInterval(callback, timeout = 10, ...params) {
     timer = setRafTimeout(finalCallback, timeout);
   };
 
-  finalCallback();
+  timer = setRafTimeout(finalCallback, timeout);
 
-  return function getTimer(timer) {
-    return timer;
-  };
+  return () => timer;
 }
 
 export function clearRafInterval(timer) {
